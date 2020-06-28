@@ -1,0 +1,20 @@
+{
+    "rainbowdelay": 10000,
+    "rainbowcommand": "rainbow",
+    "rainbowstop": "rainbowstop",
+    "rainbowrole": [
+        "#9400D3",
+        "#4B0082",
+        "#0000FF",
+        "#00FF00",
+        "#FFFF00",
+        "#FF7F00",
+        "#FF0000"
+    ],
+    "messageresponse": {
+        "missingperm": "Szükségem van a rangok kezelésére.",
+        "success": "AZTA SZÍVÁRVÁNY!!!",
+        "rainbowstop": "Szívárvány vége :(",
+        "rolenotfound": "A kért rang nem található"
+    }
+}

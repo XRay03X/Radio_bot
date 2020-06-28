@@ -1,0 +1,12 @@
+{
+    "vigrinradio": "http://astreaming.europafm.ro:8000/virgin_mp3_64k",
+    "radiozu":"https://live2ro.antenaplay.ro/radiozu/radiozu-48000.m3u8",
+    "radio1":"http://stream.radio1.hu/mid.mp3",
+    "retro":"https://stream.retroradio.hu/mid.mp3",
+    "petofi":"https://icast.connectmedia.hu/4738/mr2.mp3",
+    "city":"http://live.city-radio.ro:8800/;stream"
+
+
+
+
+}
