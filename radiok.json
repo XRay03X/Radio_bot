@@ -4,7 +4,8 @@
     "radio1":"http://stream.radio1.hu/mid.mp3",
     "retro":"https://stream.retroradio.hu/mid.mp3",
     "petofi":"https://icast.connectmedia.hu/4738/mr2.mp3",
-    "city":"http://live.city-radio.ro:8800/;stream"
+    "city":"http://live.city-radio.ro:8800/;stream",
+    "mercy":"http://stream.mercyradio.eu/mercyradio.mp3"
 
 
 

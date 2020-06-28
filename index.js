@@ -65,6 +65,7 @@ bot.on("message", async msg => { // eslint-disable-line
             > \`retro\` > **\`Retro Rádió\`**
             > \`petofi\` > **\`Petőfi Rádió\`**
             > \`city\` > **\`City Rádió\`**
+            > \`mercy\` > **\`Mercy Rádió\`**
             > \`radiooff\` > **\`Rádió kinyomása\`**
             > \`skip\`, \`stop\`,  \`pause\`, \`resume\`
             > \`nowplaying\`, \`queue\`, \`volume\``)
@@ -381,6 +382,18 @@ let SONG_INFO = {
             message.channel.send(':thumbsup: A City rádió szól!')
         
             broadcast.playStream(radiok.city)
+            connection.playBroadcast(broadcast)
+        })
+      }
+      if (message.content == PREFIX + 'mercy') {
+        if (!voiceChannel) return message.channel.send('Bent kell legyél hogy halljad a rádiót!')
+        
+        const broadcast = message.client.createVoiceBroadcast()
+        
+        voiceChannel.join().then(connection => {
+            message.channel.send(':thumbsup: A Mercy rádió szól!')
+        
+            broadcast.playStream(radiok.mercy)
             connection.playBroadcast(broadcast)
         })
       }
