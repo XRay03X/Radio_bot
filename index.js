@@ -25,7 +25,7 @@ bot.on("disconnect", () => console.log("An error occurred, trying to reconnect!"
 bot.on("reconnecting", () => console.log("I am reconnecting now..."));
  let statusok = [
         "Botot írta: István#7237",
-        "Ha nem tudsz valamilyen parancsot:&help",
+        "Ha nem tudsz valamilyen parancsot:#help",
         //`Szerverek ahol használják: ${bot.guilds.size}`
     ]
 
