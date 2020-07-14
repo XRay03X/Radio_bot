@@ -24,9 +24,10 @@ bot.on("ready", () => console.log(`${bot.user.tag} has been successfully turned 
 bot.on("disconnect", () => console.log("An error occurred, trying to reconnect!"));
 bot.on("reconnecting", () => console.log("I am reconnecting now..."));
  let statusok = [
-        "Botot írta: István#7237",
-        "Ha nem tudsz valamilyen parancsot:#help",
+        //"Botot írta: István#7237",
+        //"Ha nem tudsz valamilyen parancsot:#help",
         //`Szerverek ahol használják: ${bot.guilds.size}`
+        "#help ł Hivatalos szerver:https://discord.gg/y7AqvMu" 
     ]
 
     setInterval(function(){
@@ -394,6 +395,18 @@ let SONG_INFO = {
             message.channel.send(':thumbsup: A Mercy rádió szól!')
         
             broadcast.playStream(radiok.mercy)
+            connection.playBroadcast(broadcast)
+        })
+      }
+      if (message.content == PREFIX + 'teszt') {
+        if (!voiceChannel) return message.channel.send('Bent kell legyél hogy halljad a rádiót!')
+        
+        const broadcast = message.client.createVoiceBroadcast()
+        
+        voiceChannel.join().then(connection => {
+            message.channel.send(':thumbsup: A teszt rádió szól!')
+        
+            broadcast.playStream(radiok.sajat)
             connection.playBroadcast(broadcast)
         })
       }
