@@ -67,7 +67,7 @@ bot.on("message", async msg => { // eslint-disable-line
             > \`petofi\` > **\`Petőfi Rádió\`**
             > \`city\` > **\`City Rádió\`**
             > \`mercy\` > **\`Mercy Rádió\`**
-            > \`radiooff\` > **\`Rádió kinyomása\`**
+            > \`off\` > **\`Rádió kinyomása\`**
             > \`skip\`, \`stop\`,  \`pause\`, \`resume\`
             > \`nowplaying\`, \`queue\`, \`volume\``)
                         .setFooter("©️ 2020 István#7237");
@@ -419,12 +419,33 @@ let SONG_INFO = {
         .setTitle(SONG_INFO.title))
     }
   
-    if (message.content == PREFIX + 'radiooff') {
+    if (message.content == PREFIX + 'off') {
       await voiceChannel.leave()
       message.channel.send(':no_entry: Sikeresen kinyomtad a rádíót!')
     }
-}
-);
+    });
+    const Welcome = require("discord-welcome");
+ 
+    Welcome(bot, {
+        "318010120527282177": {
+            privatemsg : "Üdvözöllek a Szatmárchaten",
+            publicmsg : "Üdvözöllek @MEMBER a Szatmárchaten jó szórakozást! Vigyázzon a román horrorkaravánokra :wink:",
+            publicchannel : "csengersima-petea"
+        },
+        "747200314289029170": {
+            privatemsg : "Üdvözöllek a teszt szerveren",
+            publicmsg : "Üdvözöllek a teszt szerveren",
+            publicchannel : "welcome"
+        }
+    })
+
+       
+
+
+        
+
+
+
 
 
 bot.login(TOKEN);
