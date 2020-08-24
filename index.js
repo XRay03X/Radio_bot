@@ -428,7 +428,7 @@ let SONG_INFO = {
  
     Welcome(bot, {
         "318010120527282177": {
-            privatemsg : "Üdvözöllek a Szatmárchaten",
+            privatemsg : "Gyere szopjá egyet komolyan mondom",
             publicmsg : "Üdvözöllek @MEMBER a Szatmárchaten jó szórakozást! Vigyázzon a román horrorkaravánokra :wink:",
             publicchannel : "csengersima-petea"
         },
