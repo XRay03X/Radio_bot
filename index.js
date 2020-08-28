@@ -20,9 +20,9 @@ const queue = new Map();
 
 bot.on("warn", console.warn);
 bot.on("error", console.error);
-bot.on("ready", () => console.log(`${bot.user.tag} has been successfully turned on!`));
-bot.on("disconnect", () => console.log("An error occurred, trying to reconnect!"));
-bot.on("reconnecting", () => console.log("I am reconnecting now..."));
+bot.on("ready", () => console.log(`${bot.user.tag} tökéletesen elindult!`));
+bot.on("disconnect", () => console.log("Hiba indíts újra!"));
+bot.on("reconnecting", () => console.log("Újracsatlakozok...."));
  let statusok = [
         //"Botot írta: István#7237",
         //"Ha nem tudsz valamilyen parancsot:#help",
@@ -56,7 +56,7 @@ bot.on("message", async msg => { // eslint-disable-line
             .setDescription(`
             __**Parancslista**__
             > \`play\` > **\`play [szöveg/url]\`**
-            > \`search\` > **\`search [szöveg]\`**
+            > \`keres\` > **\`keres [szöveg]\`**
             > \`rainbow\` > **\`rainbow [@rangnév]\`**
             > \`rainbowstop\` > **\`rainbowstop (megállítja a diszkót)\`**
             \`hogy müködjön a diszkó igy állisd be\` > **\`https://imgur.com/a/gqbkRmk\`**
@@ -69,8 +69,8 @@ bot.on("message", async msg => { // eslint-disable-line
             > \`mercy\` > **\`Mercy Rádió\`**
             > \`off\` > **\`Rádió kinyomása\`**
             > \`skip\`, \`stop\`,  \`pause\`, \`resume\`
-            > \`nowplaying\`, \`queue\`, \`volume\``)
-                        .setFooter("©️ 2020 István#7237");
+            > \`nowplaying\`, \`queue\`, \`hang\``)
+                        .setFooter("©️ 2020 István#6363");
         msg.channel.send(helpembed);
     }
     if (command === "play" || command === "p") {
@@ -107,7 +107,7 @@ bot.on("message", async msg => { // eslint-disable-line
             return handleVideo(video, msg, voiceChannel);
         }
     }
-    if (command === "search" || command === "sc") {
+    if (command === "keres" || command === "ker") {
         const voiceChannel = msg.member.voiceChannel;
         if (!voiceChannel) return msg.channel.send("Sajnálom be kell lépned egy szobába hogy használd a botot!");
         const permissions = voiceChannel.permissionsFor(msg.client.user);
@@ -175,7 +175,7 @@ Válaszd ki 1-10 ig melyik számot szeretnéd!
         msg.channel.send("⏹️  **|**  Kinyomtad a zenét!");
         return undefined;
 
-    } else if (command === "volume" || command === "vol") {
+    } else if (command === "hangero" || command === "hang") {
         if (!msg.member.voiceChannel) return msg.channel.send("Sajnálom de nem vagy bent a szobába hogy hangerőt állíts");
         if (!serverQueue) return msg.channel.send("Semmi nincs bent");
         if (!args[1]) return msg.channel.send(`Mostani hangerő: **\`${serverQueue.volume}%\`**`);
@@ -438,6 +438,7 @@ let SONG_INFO = {
             publicchannel : "welcome"
         }
     })
+//spotify
 
        
 
