@@ -5,6 +5,7 @@ const ytdl = require("ytdl-core");
 const dotenv = require("dotenv").config();
 const szivarvany = require("./szivarvany.json");
 const radiok = require("./radiok.json");
+
 require("./server.js");
 
 const TOKEN = process.env.BOT_TOKEN;
@@ -32,12 +33,12 @@ bot.on("reconnecting", () => console.log("Újracsatlakozok...."));
 
     setInterval(function(){
         let status = statusok[Math.floor(Math.random() * statusok.length)];
-        bot.user.setActivity(status, {type: "PLAYING"}) //A playing helyett természetesen vannak más lhetőségek pl: streaming stb...
-    }, 3000) //A 3000 azt jelenti hogy ezt a folyamatot 3000milimásodpercenként ismételje ha jól tudom :D
+        bot.user.setActivity(status, {type: "PLAYING"})
+    }, 3000) 
 
 
-
-bot.on("message", async msg => { // eslint-disable-line
+// youtube support
+bot.on("message", async msg => { 
     if (msg.author.bot) return undefined;
     if (!msg.content.startsWith(PREFIX)) return undefined;
 
@@ -87,8 +88,8 @@ bot.on("message", async msg => { // eslint-disable-line
             const playlist = await youtube.getPlaylist(url);
             const videos = await playlist.getVideos();
             for (const video of Object.values(videos)) {
-                const video2 = await youtube.getVideoByID(video.id); // eslint-disable-line no-await-in-loop
-                await handleVideo(video2, msg, voiceChannel, true); // eslint-disable-line no-await-in-loop
+                const video2 = await youtube.getVideoByID(video.id); 
+                await handleVideo(video2, msg, voiceChannel, true); 
             }
             return msg.channel.send(`<:thumbsup:591629527571234819>  **|**  Lejátszásilista: **\`${playlist.title}\`**Hozzáadva a listához!`);
         } else {
@@ -121,8 +122,8 @@ bot.on("message", async msg => { // eslint-disable-line
             const playlist = await youtube.getPlaylist(url);
             const videos = await playlist.getVideos();
             for (const video of Object.values(videos)) {
-                const video2 = await youtube.getVideoByID(video.id); // eslint-disable-line no-await-in-loop
-                await handleVideo(video2, msg, voiceChannel, true); // eslint-disable-line no-await-in-loop
+                const video2 = await youtube.getVideoByID(video.id); 
+                await handleVideo(video2, msg, voiceChannel, true); 
             }
             return msg.channel.send(`<:yes:591629527571234819>  **|**  Lejátszási lista: **\`${playlist.title}\`** hozzáadva a listához!`);
         } else {
@@ -139,7 +140,7 @@ ${videos.map(video2 => `**\`${++index}\`  |**  ${video2.title}`).join("\n")}
 
 Válaszd ki 1-10 ig melyik számot szeretnéd!
 					`);
-                    // eslint-disable-next-line max-depth
+                    
                     try {
                         var response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {
                             maxMatches: 1,
@@ -275,6 +276,7 @@ function play(guild, song) {
 
     serverQueue.textChannel.send(`🎶  **|**  Elkezdtem játszani **\`${song.title}\`**`);
 }
+//,,szivárvány" parancs
 bot.on('message', message => {
     let messageArray = message.content.split(" ");
     let command = messageArray[0];
@@ -299,7 +301,7 @@ bot.on('message', message => {
                        message.channel.send(szivarvany.messageresponse.rainbowstop).catch(err=> message.channel.send("No response"))
                     }
                 });
-//rádió
+//online rádió support
 
 let SONG_INFO = {
     title: '',
@@ -410,6 +412,18 @@ let SONG_INFO = {
             connection.playBroadcast(broadcast)
         })
       }
+      if (message.content == PREFIX + 'techno') {
+        if (!voiceChannel) return message.channel.send('Bent kell legyél hogy halljad a rádiót!')
+        
+        const broadcast = message.client.createVoiceBroadcast()
+        
+        voiceChannel.join().then(connection => {
+            message.channel.send(':thumbsup: A TechnoBaseFM rádió szól!')
+        
+            broadcast.playStream(radiok.techno)
+            connection.playBroadcast(broadcast)
+        })
+      }
   
     if (message.content == PREFIX + 'np') {
       message.channel.send(new RichEmbed()
@@ -425,7 +439,7 @@ let SONG_INFO = {
     }
     });
     const Welcome = require("discord-welcome");
- 
+ //szerver üdvözlő support
     Welcome(bot, {
         "318010120527282177": {
             privatemsg : "Gyere szopjá egyet komolyan mondom",
@@ -438,16 +452,18 @@ let SONG_INFO = {
             publicchannel : "welcome"
         }
     })
-//spotify
+//spotify support rész
 
        
 
 
         
 
+//lyrics
+
 
 
 
 
 bot.login(TOKEN);
-//nemtomgecimiértnemjóezaszar
+//nemmegyvalamiért
