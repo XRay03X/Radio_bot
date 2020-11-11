@@ -1,5 +1,5 @@
-const Discord = require("discord-v11.js");
-const { Client, Util } = require("discord-v11.js");
+const Discord = require("discord.js");
+const { Client, Util } = require("discord.js");
 const YouTube = require("simple-youtube-api");
 const ytdl = require("ytdl-core");
 const dotenv = require("dotenv").config();
