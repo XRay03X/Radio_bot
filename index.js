@@ -6,6 +6,9 @@ const dotenv = require("dotenv").config();
 const szivarvany = require("./szivarvany.json");
 const radiok = require("./radiok.json");
 
+
+
+
 require("./server.js");
 
 const TOKEN = process.env.BOT_TOKEN;
@@ -36,9 +39,12 @@ bot.on("reconnecting", () => console.log("Újracsatlakozok...."));
         bot.user.setActivity(status, {type: "PLAYING"})
     }, 3000) 
 
+    
+    
+    
 
 // youtube support
-bot.on("message", async msg => { 
+/*bot.on("message", async msg => { 
     if (msg.author.bot) return undefined;
     if (!msg.content.startsWith(PREFIX)) return undefined;
 
@@ -214,7 +220,56 @@ ${serverQueue.songs.map(song => `**-** ${song.title}`).join("\n")}
         }
         return msg.channel.send("Nincs semmi bent....");
     }
-    return undefined;
+   
+    if (command === 'ping') {
+        msg.channel.send('Pong.');
+    } else if (command === 'beep') {
+        msg.channel.send('Boop.');
+    } else if (command === 'server') {
+        msg.channel.send(`Szerver neve: ${msg.guild.name}\nTagok: ${msg.guild.memberCount}`);
+    } else if (command === 'user-info') {
+        msg.channel.send(`Felhasználóneved: ${msg.author.username}\nAzonosítod: ${msg.author.id}`);
+    } else if (command === 'szia') {
+        if (!args.length) {
+            return msg.channel.send(`Szopjá egyet, ${msg.author}!`);
+        } else if (args[0] === 'foo') {
+            return msg.channel.send('bar');
+        }
+    
+        msg.channel.send(`First argument: ${args[0]}`);
+    } else if (command === 'kick') {
+        if (!msg.mentions.users.size) {
+            return msg.reply('jelöld meg azt a faszt akit ki akarsz dobni!');
+        }
+    
+        const taggedUser = msg.mentions.users.first();
+    
+        msg.channel.send(`Ki akarod baszni: ${taggedUser.username}`);
+    } else if (command === 'avatar') {
+        if (!msg.mentions.users.size) {
+            return msg.channel.send(`Profilképed: ${msg.author.displayAvatarURL({ dynamic: true })}`);
+        }
+    
+        const avatarList = msg.mentions.users.map(user => {
+            return `${user.username}'s avatar: ${user.displayAvatarURL({ dynamic: true })}`;
+        });
+    
+        msg.channel.send(avatarList);
+    } else if (command === 'prune') {
+        const amount = parseInt(args[0]) + 1;
+    
+        if (isNaN(amount)) {
+            return msg.reply('that doesn\'t seem to be a valid number.');
+        } else if (amount <= 1 || amount > 100) {
+            return msg.reply('you need to input a number between 1 and 99.');
+        }
+    
+        msg.channel.bulkDelete(amount, true).catch(err => {
+            console.error(err);
+            message.channel.send('there was an error trying to prune messages in this channel!');
+            return undefined;
+        });
+    }
 });
 
 async function handleVideo(video, msg, voiceChannel, playlist = false) {
@@ -300,7 +355,7 @@ bot.on('message', message => {
            
                        message.channel.send(szivarvany.messageresponse.rainbowstop).catch(err=> message.channel.send("No response"))
                     }
-                });
+                });*/
 //online rádió support
 
 let SONG_INFO = {
@@ -437,6 +492,25 @@ let SONG_INFO = {
       await voiceChannel.leave()
       message.channel.send(':no_entry: Sikeresen kinyomtad a rádíót!')
     }
+    if (command === "help" || command == "cmd") {
+        const helpembed = new Discord.RichEmbed()
+            .setColor("#7289DA")
+            .setAuthor(bot.user.tag, bot.user.displayAvatarURL)
+            .setDescription(`
+            __**Parancslista**__
+            > \`vigrin\` > **\`Vigrin Rádió\`**
+            > \`radiozu\` > **\`RadioZU\`**
+            > \`radio1\` > **\`Rádió1\`**
+            > \`retro\` > **\`Retro Rádió\`**
+            > \`petofi\` > **\`Petőfi Rádió\`**
+            > \`city\` > **\`City Rádió\`**
+            > \`mercy\` > **\`Mercy Rádió\`**
+            > \`off\` > **\`Rádió kinyomása\`**
+            > \`skip\`, \`stop\`,  \`pause\`, \`resume\`
+            > \`nowplaying\`, \`queue\`, \`hang\``)
+                        .setFooter("©️ 2020 István#6363");
+        msg.channel.send(helpembed);
+    }
     });
     const Welcome = require("discord-welcome");
  //szerver üdvözlő support
@@ -450,11 +524,18 @@ let SONG_INFO = {
             privatemsg : "Üdvözöllek a teszt szerveren",
             publicmsg : "Üdvözöllek a teszt szerveren",
             publicchannel : "welcome"
+        },
+        "595582681568378930": {
+            privatemsg : "Gyere szopjá egyet komolyan mondom",
+            publicmsg : "Üdvözöllek @MEMBER a ZSONDÉR SZERÓN jó szórakozást!",
+            publicchannel : "595582681568378932"
         }
     })
-//spotify support rész
+//alap szarok
 
-       
+
+
+
 
 
         

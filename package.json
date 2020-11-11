@@ -29,10 +29,12 @@
   },
   "dependencies": {
     "@discordjs/opus": "^0.1.0",
+    "args": "^5.0.1",
+    "ascii-table": "0.0.9",
     "axios": "^0.20.0",
     "cheerio": "^1.0.0-rc.3",
     "discord-welcome": "^1.5.1",
-    "discord.js": "^11.6.4",
+    "discord.js": "^12.3.1",
     "discord.js-v11": "^12.1.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
