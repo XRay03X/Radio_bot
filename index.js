@@ -71,7 +71,7 @@ bot.on("message", async msg => {
             > \`skip\`, \`stop\`,  \`pause\`, \`resume\`
             > \`nowplaying\`, \`queue\`, \`hang\`
             ---Ezek működnek---
-            > \`vigrin\` > **\`Vigrin Rádió\`**
+            > \`virgin\` > **\`Vigrin Rádió\`**
             > \`radiozu\` > **\`RadioZU\`**
             > \`radio1\` > **\`Rádió1\`**
             > \`retro\` > **\`Retro Rádió\`**
@@ -374,7 +374,7 @@ let SONG_INFO = {
   
     const voiceChannel = message.member.voiceChannel
   
-    if (message.content == PREFIX + 'vigrin') {
+    if (message.content == PREFIX + 'virgin') {
       if (!voiceChannel) return message.channel.send('Bent kell legyél hogy halljad a rádiót!')
   
       const broadcast = message.client.createVoiceBroadcast()
