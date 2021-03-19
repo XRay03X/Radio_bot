@@ -77,7 +77,7 @@ bot.on("message", async msg => {
             > \`retro\` > **\`Retro Rádió\`**
             > \`petofi\` > **\`Petőfi Rádió\`**
             > \`city\` > **\`City Rádió\`**
-            > \`mercy\` > **\`Mercy Rádió\`**
+            > \`mex\` > **\`Mex Rádió\`**
             > \`off\` > **\`Rádió kinyomása\`**`)
                         .setFooter("©️ 2021 István#5161");
         msg.channel.send(helpembed);
@@ -446,13 +446,13 @@ let SONG_INFO = {
             connection.playBroadcast(broadcast)
         })
       }
-      if (message.content == PREFIX + 'mercy') {
+      if (message.content == PREFIX + 'mex') {
         if (!voiceChannel) return message.channel.send('Bent kell legyél hogy halljad a rádiót!')
         
         const broadcast = message.client.createVoiceBroadcast()
         
         voiceChannel.join().then(connection => {
-            message.channel.send(':thumbsup: A Mercy rádió szól!')
+            message.channel.send(':thumbsup: A Mex Mulatós rádió szól!')
         
             broadcast.playStream(radiok.mercy)
             connection.playBroadcast(broadcast)
