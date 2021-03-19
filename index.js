@@ -62,11 +62,15 @@ bot.on("message", async msg => {
             .setAuthor(bot.user.tag, bot.user.displayAvatarURL)
             .setDescription(`
             __**Parancslista**__
+            ---Javítás alatt----
             > \`play\` > **\`play [szöveg/url]\`**
             > \`keres\` > **\`keres [szöveg]\`**
             > \`rainbow\` > **\`rainbow [@rangnév]\`**
             > \`rainbowstop\` > **\`rainbowstop (megállítja a diszkót)\`**
             \`hogy müködjön a diszkó igy állisd be\` > **\`https://imgur.com/a/gqbkRmk\`**
+            > \`skip\`, \`stop\`,  \`pause\`, \`resume\`
+            > \`nowplaying\`, \`queue\`, \`hang\`
+            ---Ezek működnek---
             > \`vigrin\` > **\`Vigrin Rádió\`**
             > \`radiozu\` > **\`RadioZU\`**
             > \`radio1\` > **\`Rádió1\`**
@@ -74,12 +78,11 @@ bot.on("message", async msg => {
             > \`petofi\` > **\`Petőfi Rádió\`**
             > \`city\` > **\`City Rádió\`**
             > \`mercy\` > **\`Mercy Rádió\`**
-            > \`off\` > **\`Rádió kinyomása\`**
-            > \`skip\`, \`stop\`,  \`pause\`, \`resume\`
-            > \`nowplaying\`, \`queue\`, \`hang\``)
-                        .setFooter("©️ 2020 István#6363");
+            > \`off\` > **\`Rádió kinyomása\`**`)
+                        .setFooter("©️ 2021 István#5161");
         msg.channel.send(helpembed);
     }
+    });
     /*if (command === "play" || command === "p") {
         const voiceChannel = msg.member.voiceChannel;
         if (!voiceChannel) return msg.channel.send("Sajnálom be kell lépned egy szobába hogy használd a botot!");
@@ -492,7 +495,7 @@ let SONG_INFO = {
       await voiceChannel.leave()
       message.channel.send(':no_entry: Sikeresen kinyomtad a rádíót!')
     }
-    if (command === "help" || command == "cmd") {
+    /*if (command === "help" || command == "cmd") {
         const helpembed = new Discord.RichEmbed()
             .setColor("#7289DA")
             .setAuthor(bot.user.tag, bot.user.displayAvatarURL)
@@ -510,7 +513,7 @@ let SONG_INFO = {
             > \`nowplaying\`, \`queue\`, \`hang\``)
                         .setFooter("©️ 2020 István#6363");
         msg.channel.send(helpembed);
-    }
+    }*/
     });
     const Welcome = require("discord-welcome");
  //szerver üdvözlő support
