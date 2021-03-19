@@ -44,7 +44,7 @@ bot.on("reconnecting", () => console.log("Újracsatlakozok...."));
     
 
 // youtube support
-/*bot.on("message", async msg => { 
+bot.on("message", async msg => { 
     if (msg.author.bot) return undefined;
     if (!msg.content.startsWith(PREFIX)) return undefined;
 
@@ -80,7 +80,7 @@ bot.on("reconnecting", () => console.log("Újracsatlakozok...."));
                         .setFooter("©️ 2020 István#6363");
         msg.channel.send(helpembed);
     }
-    if (command === "play" || command === "p") {
+    /*if (command === "play" || command === "p") {
         const voiceChannel = msg.member.voiceChannel;
         if (!voiceChannel) return msg.channel.send("Sajnálom be kell lépned egy szobába hogy használd a botot!");
         const permissions = voiceChannel.permissionsFor(msg.client.user);
