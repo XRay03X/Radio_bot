@@ -62,15 +62,6 @@ bot.on("message", async msg => {
             .setAuthor(bot.user.tag, bot.user.displayAvatarURL)
             .setDescription(`
             __**Parancslista**__
-            ---Javítás alatt----
-            > \`play\` > **\`play [szöveg/url]\`**
-            > \`keres\` > **\`keres [szöveg]\`**
-            > \`rainbow\` > **\`rainbow [@rangnév]\`**
-            > \`rainbowstop\` > **\`rainbowstop (megállítja a diszkót)\`**
-            \`hogy müködjön a diszkó igy állisd be\` > **\`https://imgur.com/a/gqbkRmk\`**
-            > \`skip\`, \`stop\`,  \`pause\`, \`resume\`
-            > \`nowplaying\`, \`queue\`, \`hang\`
-            ---Ezek működnek---
             > \`virgin\` > **\`Vigrin Rádió\`**
             > \`radiozu\` > **\`RadioZU\`**
             > \`radio1\` > **\`Rádió1\`**
@@ -81,6 +72,14 @@ bot.on("message", async msg => {
             > \`off\` > **\`Rádió kinyomása\`**`)
                         .setFooter("©️ 2021 István#5161");
         msg.channel.send(helpembed);
+         /* ---Javítás alatt----
+            > \`play\` > **\`play [szöveg/url]\`**
+            > \`keres\` > **\`keres [szöveg]\`**
+            > \`rainbow\` > **\`rainbow [@rangnév]\`**
+            > \`rainbowstop\` > **\`rainbowstop (megállítja a diszkót)\`**
+            \`hogy müködjön a diszkó igy állisd be\` > **\`https://imgur.com/a/gqbkRmk\`**
+            > \`skip\`, \`stop\`,  \`pause\`, \`resume\`
+            > \`nowplaying\`, \`queue\`, \`hang\`*/
     }
     });
     /*if (command === "play" || command === "p") {
@@ -273,7 +272,8 @@ ${serverQueue.songs.map(song => `**-** ${song.title}`).join("\n")}
             return undefined;
         });
     }
-});
+
+
 
 async function handleVideo(video, msg, voiceChannel, playlist = false) {
     const serverQueue = queue.get(msg.guild.id);
@@ -333,7 +333,7 @@ function play(guild, song) {
     dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
 
     serverQueue.textChannel.send(`🎶  **|**  Elkezdtem játszani **\`${song.title}\`**`);
-}
+}*/
 //,,szivárvány" parancs
 bot.on('message', message => {
     let messageArray = message.content.split(" ");
@@ -358,7 +358,7 @@ bot.on('message', message => {
            
                        message.channel.send(szivarvany.messageresponse.rainbowstop).catch(err=> message.channel.send("No response"))
                     }
-                });*/
+                });
 //online rádió support
 
 let SONG_INFO = {
