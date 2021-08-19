@@ -64,11 +64,13 @@ bot.on("message", async msg => {
             __**Parancslista**__
             > \`virgin\` > **\`Vigrin Rádió\`**
             > \`radiozu\` > **\`RadioZU\`**
-            > \`radio1\` > **\`Rádió1\`**
+            > \`radio1deb\` > **\`Rádió1(Debrecen)\`**
+            > \`radio1nyh\` > **\`Rádió1(Nyíregyháza)\`**
             > \`retro\` > **\`Retro Rádió\`**
             > \`petofi\` > **\`Petőfi Rádió\`**
             > \`city\` > **\`City Rádió\`**
             > \`mex\` > **\`Mex Rádió\`**
+            > \`techno\` > **\`Techno\`**
             > \`off\` > **\`Rádió kinyomása\`**`)
                         .setFooter("©️ 2021 István#5161");
         msg.channel.send(helpembed);
