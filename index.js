@@ -398,15 +398,15 @@ let SONG_INFO = {
           connection.playBroadcast(broadcast)
         })
     }
-    if (message.content == PREFIX + 'radio1') {
+    if (message.content == PREFIX + 'radio1deb') {
         if (!voiceChannel) return message.channel.send('Bent kell legyél hogy halljad a rádiót!')
         
         const broadcast = message.client.createVoiceBroadcast()
         
         voiceChannel.join().then(connection => {
-            message.channel.send(':thumbsup: A Rádió1 rádió szól!')
+            message.channel.send(':thumbsup: A Rádió1(Debrecen) rádió szól!')
         
-            broadcast.playStream(radiok.radio1)
+            broadcast.playStream(radiok.radio1deb)
             connection.playBroadcast(broadcast)
         })
       }
@@ -458,15 +458,15 @@ let SONG_INFO = {
             connection.playBroadcast(broadcast)
         })
       }
-      if (message.content == PREFIX + 'teszt') {
+      if (message.content == PREFIX + 'radio1nyh') {
         if (!voiceChannel) return message.channel.send('Bent kell legyél hogy halljad a rádiót!')
         
         const broadcast = message.client.createVoiceBroadcast()
         
         voiceChannel.join().then(connection => {
-            message.channel.send(':thumbsup: A teszt rádió szól!')
+            message.channel.send(':thumbsup: A Rádió1(Nyíregyháza) szól!')
         
-            broadcast.playStream(radiok.sajat)
+            broadcast.playStream(radiok.radio1nyh)
             connection.playBroadcast(broadcast)
         })
       }
