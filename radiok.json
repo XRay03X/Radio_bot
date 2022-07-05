@@ -5,8 +5,8 @@
     "retro":"http://icast.connectmedia.hu/5002/live.mp3",
     "petofi":"https://icast.connectmedia.hu/4738/mr2.mp3",
     "city":"http://live.city-radio.ro:8800/;stream",
-    "mercy":"https://stream.diazol.hu:31032/mulatos.mp3",
-    "radio1nyh":"http://icast.connectmedia.hu/5125/live.mp3",
+    "mex":"https://stream.mexradio.hu:8016/mulatos",
+    "sunshine":"http://195.56.193.129:8100/;stream",
     "techno":"https://mp3.stream.tb-group.fm/tb.mp3?/technobase.ogg"
 
 

@@ -63,16 +63,15 @@ bot.on("message", async msg => {
             .setDescription(`
             __**Parancslista**__
             > \`virgin\` > **\`Vigrin Rádió\`**
-            > \`radiozu\` > **\`RadioZU\`**
             > \`radio1deb\` > **\`Rádió1(Debrecen)\`**
-            > \`radio1nyh\` > **\`Rádió1(Nyíregyháza)\`**
+            > \`sunshine\` > **\`Sunshine FM\`**
             > \`retro\` > **\`Retro Rádió\`**
             > \`petofi\` > **\`Petőfi Rádió\`**
             > \`city\` > **\`City Rádió\`**
-            > \`mex\` > **\`Mex Rádió\`**
+            > \`mex\` > **\`Mex Mulatós\`**
             > \`techno\` > **\`Techno\`**
             > \`off\` > **\`Rádió kinyomása\`**`)
-                        .setFooter("©️ 2021 István#5161");
+                        .setFooter("©️ 2022 István#3881");
         msg.channel.send(helpembed);
          /* ---Javítás alatt----
             > \`play\` > **\`play [szöveg/url]\`**
@@ -456,19 +455,19 @@ let SONG_INFO = {
         voiceChannel.join().then(connection => {
             message.channel.send(':thumbsup: A Mex Mulatós rádió szól!')
         
-            broadcast.playStream(radiok.mercy)
+            broadcast.playStream(radiok.mex)
             connection.playBroadcast(broadcast)
         })
       }
-      if (message.content == PREFIX + 'radio1nyh') {
+      if (message.content == PREFIX + 'sunshine') {
         if (!voiceChannel) return message.channel.send('Bent kell legyél hogy halljad a rádiót!')
         
         const broadcast = message.client.createVoiceBroadcast()
         
         voiceChannel.join().then(connection => {
-            message.channel.send(':thumbsup: A Rádió1(Nyíregyháza) szól!')
+            message.channel.send(':thumbsup: A Sunshine FM szól!')
         
-            broadcast.playStream(radiok.radio1nyh)
+            broadcast.playStream(radiok.sunshine)
             connection.playBroadcast(broadcast)
         })
       }
