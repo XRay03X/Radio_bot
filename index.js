@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const { Client, Util } = require("discord.js");
-const YouTube = require("simple-youtube-api");
-const ytdl = require("ytdl-core");
+//cconst YouTube = require("simple-youtube-api");
+//const ytdl = require("ytdl-core");
 const dotenv = require("dotenv").config();
 const szivarvany = require("./szivarvany.json");
 const radiok = require("./radiok.json");
@@ -11,15 +11,15 @@ const radiok = require("./radiok.json");
 
 require("./server.js");
 
-const TOKEN = process.env.BOT_TOKEN;
-const PREFIX = process.env.PREFIX;
-const GOOGLE_API_KEY = process.env.YTAPI_KEY;
+const TOKEN = process.env.BOT_TOKEN ||"NTc2NDE1NDI1MzA3MzQ0OTEy.GhgbqJ.3pYRHu7mC38WiOJ5yklSJl_cr196RWNurRHjwU";
+const PREFIX = process.env.PREFIX ||"#";
+//const GOOGLE_API_KEY = process.env.YTAPI_KEY;
 
 const bot = new Client({
     disableEveryone: true
 });
 
-const youtube = new YouTube(GOOGLE_API_KEY);
+//const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map();
 
 bot.on("warn", console.warn);
@@ -71,7 +71,7 @@ bot.on("message", async msg => {
             > \`mex\` > **\`Mex Mulatós\`**
             > \`techno\` > **\`Techno\`**
             > \`off\` > **\`Rádió kinyomása\`**`)
-                        .setFooter("©️ 2022 István#3881");
+                        .setFooter("©️ 2023 István#3881");
         msg.channel.send(helpembed);
          /* ---Javítás alatt----
             > \`play\` > **\`play [szöveg/url]\`**
