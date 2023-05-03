@@ -1,12 +1,8 @@
 {
   "dependencies": {
-    "@discordjs/opus": "^0.1.0",
-    "discord-playing": "^1.7.1",
     "discord-welcome": "^3.0.3",
     "discord.js": "^11.6.2",
     "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "simple-youtube-api": "^5.2.1",
-    "ytdl-core": "^4.11.2"
+    "express": "^4.18.2"
   }
 }
