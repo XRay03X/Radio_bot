@@ -13,9 +13,9 @@ RADIO_STREAMS = {
     "radio1": "https://icast.connectmedia.hu/5219/live.mp3",
     "retro": "https://icast.connectmedia.hu/5001/live.mp3",
     "bestfm": "http://stream1.webthings.hu:8000/fm95-x-128.mp3",
-    "csibeszmix": "https://radio.csibesz.com/listen/csibesz_radio_mixed/radio.mp3",
-    "csibesz": "https://radio.csibesz.com/listen/csibesz_radio_magyar/radio.mp3",
-    "kari": "https://stream1.christmasfm.hu/live.mp3"
+    "oxygen": "https://oxygenmusic.hu:8443/oxygenmusic",
+    "roxy": "https://s2.audiostream.hu/roxy_192k",
+    #"kari": "https://stream1.christmasfm.hu/live.mp3"
 }
 
 @bot.event
@@ -24,7 +24,7 @@ async def on_ready():
     await bot.change_presence(
         activity=discord.Activity(
             type=discord.ActivityType.listening,
-            name="!segitseg"
+            name="!hp"
         )
     )
 
@@ -38,7 +38,7 @@ async def join(ctx):
     else:
         await ctx.send("❌ Nem vagy hangcsatornában!")
 
-@bot.command(name="lejatszas")
+@bot.command(name="play")
 async def play(ctx, adas: str):
     vc = ctx.voice_client
     if not vc:
@@ -64,33 +64,33 @@ async def play(ctx, adas: str):
     )
     await ctx.send(f"📻 Most szól: **{adas}** rádió")
 
-@bot.command(name="megallitas")
+@bot.command(name="stop")
 async def stop(ctx):
     if ctx.voice_client:
         ctx.voice_client.stop()
         await ctx.send("⏹️ Lejátszás leállítva.")
 
-@bot.command(name="kilepes")
+@bot.command(name="left")
 async def leave(ctx):
     if ctx.voice_client:
         await ctx.voice_client.disconnect()
         await ctx.send("👋 Kiléptem a hangcsatornából.")
 
 # --- Segítség parancs ---
-@bot.command(name="segitseg")
+@bot.command(name="hp")
 async def help_command(ctx):
     help_text = (
         "🆘 **Elérhető parancsok:**\n"
         "```text\n"
         "!csatlakozz        → Csatlakozik a hangcsatornához\n"
-        "!lejatszas <nev>   → Lejátssza az adott rádiót (pl. !lejatszas retro)\n"
-        "!megallitas        → Leállítja a lejátszást\n"
-        "!kilepes           → Kilép a hangcsatornából\n"
-        "!segitseg          → Megjeleníti ezt a súgót\n"
+        "!play <nev>   → Lejátssza az adott rádiót (pl. !play retro)\n"
+        "!stop        → Leállítja a lejátszást\n"
+        "!left           → Kilép a hangcsatornából\n"
+        "!hp         → Megjeleníti ezt a súgót\n"
         "\n"
-        "Elérhető rádiók: Rádió 1(radio1), Retro Rádió(retro), Best FM Debrecen(bestfm)"
+        "Elérhető rádiók: Rádió 1(radio1), Retro Rádió(retro), Best FM Debrecen(bestfm),Oxygen rádió(oxygen),Roxy Rádió(roxy)"
         "\n"
-        "By Barna István 2025"
+        "By Ray 2026 03.14"
         "```"
     )
     await ctx.send(help_text)
