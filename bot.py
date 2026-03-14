@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import discord
 from discord.ext import commands
+from dotenv import load_dotenv
 
 # --- Engedélyek beállítása ---
 intents = discord.Intents.default()
@@ -8,15 +9,14 @@ intents.message_content = True
 
 bot = commands.Bot(command_prefix="!", intents=intents)
 
-# --- Előre beállított rádió linkek ---
-RADIO_STREAMS = {
-    "radio1": "https://icast.connectmedia.hu/5219/live.mp3",
-    "retro": "https://icast.connectmedia.hu/5001/live.mp3",
-    "bestfm": "http://stream1.webthings.hu:8000/fm95-x-128.mp3",
-    "oxygen": "https://oxygenmusic.hu:8443/oxygenmusic",
-    "roxy": "https://s2.audiostream.hu/roxy_192k",
-    #"kari": "https://stream1.christmasfm.hu/live.mp3"
-}
+load_dotenv()
+TOKEN = os.getenv("DISCORD_TOKEN")
+
+def load_radios():
+    with open("radios.json", "r", encoding="utf-8") as f:
+        return json.load(f)
+
+RADIO_STREAMS = load_radios()
 
 @bot.event
 async def on_ready():
@@ -76,7 +76,6 @@ async def leave(ctx):
         await ctx.voice_client.disconnect()
         await ctx.send("👋 Kiléptem a hangcsatornából.")
 
-# --- Segítség parancs ---
 @bot.command(name="hp")
 async def help_command(ctx):
     help_text = (
@@ -95,5 +94,4 @@ async def help_command(ctx):
     )
     await ctx.send(help_text)
 
-# --- TOKEN IDE ---
-bot.run("NjE3NzI5ODc4NDgwOTEyNDA0.GN9KY_.18WXILeW_ruzZokGplxrWZ7Q-l9rPdkiOyk7IU")
+bot.run(TOKEN)
