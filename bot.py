@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 import discord
+import os
+import json
 from discord.ext import commands
 from dotenv import load_dotenv
 
@@ -13,7 +15,7 @@ load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
 
 def load_radios():
-    with open("radios.json", "r", encoding="utf-8") as f:
+    with open("radiok.json", "r", encoding="utf-8") as f:
         return json.load(f)
 
 RADIO_STREAMS = load_radios()
