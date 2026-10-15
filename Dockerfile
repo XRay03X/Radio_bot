@@ -14,7 +14,9 @@ WORKDIR /app
 
 # Függőségek telepítése
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt && \
+    pip install --no-cache-dir aiohttp
+
 # Kényszerített újrafordítás a 4017-es hiba ellen
 RUN pip install --no-binary pynacl pynacl
 
